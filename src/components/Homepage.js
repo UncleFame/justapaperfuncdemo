@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import FRAMEmarketsquare from './FRAMEmarketsquare';
 import { Page} from './Page';
-
+import { ShirtModel } from './Page1';
+ 
 function HairChanger({ hairImageUrl, handleChangeImage, position }) {
   const { top, left,width,height } = position;
 
@@ -11,7 +12,15 @@ function HairChanger({ hairImageUrl, handleChangeImage, position }) {
     width: `${width}px`,
     height: `${height}px`,
   };
-  
+   const toggleShirtModel = () => {
+    setShowShirtModel(!showShirtModel);
+  };
+
+  const changeHairImage = (newHairImage, position) => {
+    console.log("Changing hair image to:", newHairImage);
+    setHairImageUrl(newHairImage);
+    // You can also set the position here if needed
+  };
 
   return (
     <img
@@ -24,16 +33,6 @@ function HairChanger({ hairImageUrl, handleChangeImage, position }) {
   );
 }
 
-export function FaceChanger({ faceImageUrl, handleChangeImage }) {
-  return (
-    <img
-      className="absolute top-[420px] left-[870px] w-[190px] h-[80px] object-flex z-50"
-      src={faceImageUrl}
-      alt="Displayed Face Image"
-      onClick={() => handleChangeImage('new_face_image_url.png')}
-    />
-  );
-}
 
 export const Homepage = ({ onClose }) => {
   const [showPage, setShowPage] = useState(false);
@@ -260,7 +259,9 @@ export const Homepage = ({ onClose }) => {
         className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1764px] w-3 h-4 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top]"
         onClick={togglePage}
       />
-      {showPage && <Page onClose={onClose} />}<button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1619px] w-[13px] h-4 [transform:_rotate(180deg)] [transform-origin:0_0] bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-2@3x.png')] bg-cover bg-no-repeat bg-[top]" />
+      {showPage && <Page onClose={onClose} />}
+      
+      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1619px] w-[13px] h-4 [transform:_rotate(180deg)] [transform-origin:0_0] bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-2@3x.png')] bg-cover bg-no-repeat bg-[top]" />
       <div className="absolute top-[787px] left-[1682px] leading-[15px] inline-block w-[19px] h-5 [text-shadow:1px_0_0_rgba(0,_0,_0,_0.2),_0_1px_0_rgba(0,_0,_0,_0.2),_-1px_0_0_rgba(0,_0,_0,_0.2),_0_-1px_0_rgba(0,_0,_0,_0.2)]">
         1
       </div>
