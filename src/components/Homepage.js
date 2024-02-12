@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
 import FRAMEmarketsquare from './FRAMEmarketsquare';
+import { Page} from './Page';
 
-function HairChanger({ hairImageUrl, handleChangeImage }) {
+function HairChanger({ hairImageUrl, handleChangeImage, position }) {
+  const { top, left,width,height } = position;
+
+  const imageStyle = {
+    top: `${top}px`,
+    left: `${left}px`,
+    width: `${width}px`,
+    height: `${height}px`,
+  };
+  
+
   return (
     <img
-      className="absolute top-[252px] left-[804px] w-[335px] h-[221px] object-cover z-50"
+      className="absolute w-[365px] h-[221px] object-flex z-50"
+      style={imageStyle} 
       src={hairImageUrl}
       alt="Displayed Hair Image"
-      onClick={() => handleChangeImage('new_hair_image_url.png')}
+      onClick={() => handleChangeImage('new_hair_image_url.png', position)}
     />
   );
 }
 
-function FaceChanger({ faceImageUrl, handleChangeImage }) {
+export function FaceChanger({ faceImageUrl, handleChangeImage }) {
   return (
     <img
-      className="absolute top-[152px] left-[804px] w-[335px] h-[221px] object-cover z-50"
+      className="absolute top-[420px] left-[870px] w-[190px] h-[80px] object-flex z-50"
       src={faceImageUrl}
       alt="Displayed Face Image"
       onClick={() => handleChangeImage('new_face_image_url.png')}
@@ -23,21 +35,28 @@ function FaceChanger({ faceImageUrl, handleChangeImage }) {
   );
 }
 
-const Homepage = ({ onClose }) => {
+export const Homepage = ({ onClose }) => {
+  const [showPage, setShowPage] = useState(false);
+  
+
+  const togglePage = () => {
+    setShowPage(!showPage);
+  };
+
   // State variables to hold hair and face image URLs
   const [hairImageUrl, setHairImageUrl] = useState('/pink-hair-girls@2x.png');
-  const [faceImageUrl, setFaceImageUrl] = useState('/default-face-image.png');
 
   // Function to change the hair image
-  const changeHairImage = (newHairImage) => {
+  const changeHairImage = (newHairImage, position) => {
     console.log("Changing hair image to:", newHairImage);
     setHairImageUrl(newHairImage);
+    // You can also set the position here if needed
   };
-
-  // Function to change the face image
-  const changeFaceImage = (newFaceImage) => {
-    setFaceImageUrl(newFaceImage);
-  };
+  const [top, setTop] = useState(225);
+  const [left,setLeft] = useState(770)
+  const [width, setWidth] = useState(390);
+  const [height,setHeight] = useState(190)
+  
 
   return (
     <div className="relative bg-white w-[1965px] h-[1294px] max-w-full max-h-full overflow-auto text-center text-xs text-black font-inter">
@@ -47,9 +66,12 @@ const Homepage = ({ onClose }) => {
         src="/copy-of-copy-of-able-booth-slideshow--8-removebgpreview-1@2x.png"
       />
       <FRAMEmarketsquare />
-      <HairChanger hairImageUrl={hairImageUrl} handleChangeImage={changeHairImage} />
-      <FaceChanger faceImageUrl={faceImageUrl} handleChangeImage={changeFaceImage} />
-      
+      <HairChanger
+  hairImageUrl={hairImageUrl}
+  handleChangeImage={changeHairImage}
+  position={{ top: top, left: left, width: width , height: height }} // Updated to include width
+/>
+
       
       <img
         className="absolute top-[29px] left-[1593px] w-72 h-[62px] object-cover"
@@ -67,11 +89,7 @@ const Homepage = ({ onClose }) => {
           alt=""
           src="/face-1@2x.png"
         />
-        <img
-          className="absolute top-[61.1px] left-[108px] w-[212.2px] h-[170.4px] object-cover"
-          alt=""
-          src="/eye-1@2x.png"
-        />
+        
         <img
           className="absolute top-[370.9px] left-[0px] w-[448px] h-[76.1px] object-cover"
           alt=""
@@ -97,7 +115,14 @@ const Homepage = ({ onClose }) => {
   className="absolute top-[352px] left-[1681px] w-[123px] h-[85px] object-cover"
   alt=""
   src="/hair-1@2x.png"
-  onClick={(event) => changeHairImage(event.target.src)}
+  onClick={(event) => {
+    setTop(255)
+    setLeft(820)
+    setWidth(290)
+    setHeight(210)
+
+    changeHairImage(event.target.src);
+  }}
 />
    
       <img
@@ -129,6 +154,14 @@ const Homepage = ({ onClose }) => {
         className="absolute top-[464px] left-[1545px] w-[120px] h-[68px] object-cover"
         alt=""
         src="/pink-hair-girls@2x.png"
+        onClick={(event) => {
+          setTop(225)
+          setLeft(770)
+          setWidth(390)
+          setHeight(210)
+      
+          changeHairImage(event.target.src);
+        }}
       />
       <img
         className="absolute top-[342px] left-[177px] w-[177px] h-[263px] object-cover"
@@ -140,16 +173,39 @@ const Homepage = ({ onClose }) => {
         className="absolute top-[452px] left-[1714px] w-[90px] h-[92px] object-cover"
         alt=""
         src="/bown-hair-girls@2x.png"
-      />
+        onClick={(event) => {
+    setTop(185)
+    setLeft(780)
+    setWidth(350)
+    setHeight(340)
+    changeHairImage(event.target.src);
+  }}
+  />
       <img
         className="absolute top-[570px] left-[1552px] w-[90px] h-[61px] object-cover"
         alt=""
         src="/pink-men@2x.png"
+        onClick={(event) => {
+          setTop(255)
+          setLeft(790)
+          setWidth(350)
+          setHeight(240)
+          changeHairImage(event.target.src);
+        }}
+        
+        
       />
       <img
         className="absolute top-[566px] left-[1700px] w-[111px] h-[65px] object-cover"
         alt=""
-        src="/copy-of-copy-of-able-booth-slideshow-2-1@2x.png"
+        src="/girlsgoldhair.png"
+        onClick={(event) => {
+          setTop(255)
+          setLeft(750)
+          setWidth(440)
+          setHeight(240)
+          changeHairImage(event.target.src);
+        }}
       />
       <img
         className="absolute top-[122px] left-[531px] w-[469px] h-32 object-cover"
@@ -160,11 +216,25 @@ const Homepage = ({ onClose }) => {
         className="absolute top-[659px] left-[1550px] w-[111px] h-[73px] object-cover"
         alt=""
         src="/blue-hair@2x.png"
+        onClick={(event) => {
+          setTop(225)
+          setLeft(790)
+          setWidth(340)
+          setHeight(240)
+          changeHairImage(event.target.src);
+        }}
       />
       <img
         className="absolute top-[663px] left-[1699px] w-28 h-[66px] object-cover"
         alt=""
         src="/hair-brown@2x.png"
+        onClick={(event) => {
+          setTop(215)
+          setLeft(780)
+          setWidth(370)
+          setHeight(240)
+          changeHairImage(event.target.src);
+        }}
       />
       <img
         className="absolute top-[839px] left-[1479px] w-[407px] h-[75px] object-cover"
@@ -186,8 +256,11 @@ const Homepage = ({ onClose }) => {
         alt=""
         src="/copy-of-copy-of-able-booth-slideshow-11-1@2x.png"
       />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1764px] w-3 h-4 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top]" />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1619px] w-[13px] h-4 [transform:_rotate(180deg)] [transform-origin:0_0] bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-2@3x.png')] bg-cover bg-no-repeat bg-[top]" />
+      <button
+        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1764px] w-3 h-4 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top]"
+        onClick={togglePage}
+      />
+      {showPage && <Page onClose={onClose} />}<button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1619px] w-[13px] h-4 [transform:_rotate(180deg)] [transform-origin:0_0] bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-2@3x.png')] bg-cover bg-no-repeat bg-[top]" />
       <div className="absolute top-[787px] left-[1682px] leading-[15px] inline-block w-[19px] h-5 [text-shadow:1px_0_0_rgba(0,_0,_0,_0.2),_0_1px_0_rgba(0,_0,_0,_0.2),_-1px_0_0_rgba(0,_0,_0,_0.2),_0_-1px_0_rgba(0,_0,_0,_0.2)]">
         1
       </div>
