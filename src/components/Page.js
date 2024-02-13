@@ -79,7 +79,7 @@ export function Page({ onClose }) {
       />
       <div className="absolute top-[969px] left-[106px] w-[327px] h-11" />
       <button
-        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1764px] w-3 h-4 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top] z-50"
+        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[407px] left-[1264px] w-10 h-12 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top] z-10"
         onClick={toggleShirtModel}
       />{showShirtModel && <ShirtModel onClose={onClose} />}
       

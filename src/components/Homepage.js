@@ -256,7 +256,7 @@ export const Homepage = ({ onClose }) => {
         src="/copy-of-copy-of-able-booth-slideshow-11-1@2x.png"
       />
       <button
-        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1764px] w-3 h-4 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top]"
+        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[407px] left-[1264px] w-10 h-12 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top] object-flex"
         onClick={togglePage}
       />
       {showPage && <Page onClose={onClose} />}

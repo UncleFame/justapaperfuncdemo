@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import { BaseModel } from './page2';
 
 function ShirtChanger({ shirtImageUrl, handleChangeImage, positionShirt }) {
+  
+  const [showbaseModel, setbaseModel] = useState(false);
+  const toggleShirtModel = () => {
+    setShowShirtModel(!showShirtModel);
+    setShowPage(false);
+  };
   const { top, left, width, height } = positionShirt;
   const shirtStyle = {
     top: `${top}px`,
@@ -20,6 +27,17 @@ function ShirtChanger({ shirtImageUrl, handleChangeImage, positionShirt }) {
 }
 
 export function ShirtModel({ onClose }) {
+
+  const [showBase, setShowBase] = useState(false);
+
+
+  const toggleBaseModel = () => {
+    setShowBase(!showBase);
+
+  };
+  
+
+
   const [top, setTop] = useState(545);
   const [left, setLeft] = useState(880);
   const [width, setWidth] = useState(170);
@@ -64,9 +82,12 @@ export function ShirtModel({ onClose }) {
         alt=""
         src="/remove@2x.png"
       />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1764px] w-3 h-4 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top]" />
+      <button 
+      className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[407px] left-[1264px] w-10 h-12 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top] z-10"  
+      onClick={toggleBaseModel}/>{showBase && <BaseModel onClose={onClose} />}
+      
       <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1619px] w-[13px] h-4 [transform:_rotate(180deg)] [transform-origin:0_0] bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-2@3x.png')] bg-cover bg-no-repeat bg-[top]" />
-      <div className="absolute top-[787px] left-[1682px] leading-[15px] inline-block w-[19px] h-5 [text-shadow:1px_0_0_rgba(0,_0,_0,_0.2),_0_1px_0_rgba(0,_0,_0,_0.2),_-1px_0_0_rgba(0,_0,_0,_0.2),_0_-1px_0_rgba(0,_0,_0,_0.2)]">
+      <div className="absolute top-[800px] left-[1682px] leading-[15px] inline-block w-[19px] h-5 [text-shadow:1px_0_0_rgba(0,_0,_0,_0.2),_0_1px_0_rgba(0,_0,_0,_0.2),_-1px_0_0_rgba(0,_0,_0,_0.2),_0_-1px_0_rgba(0,_0,_0,_0.2)]">
         3
       </div>
       <img
