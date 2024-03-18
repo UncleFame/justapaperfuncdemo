@@ -3,6 +3,7 @@ import { ShirtModel } from './Page1'; // Note: PascalCase for component names
 
 // Define the FaceChanger component outside of the Page component
 function FaceChanger({ faceImageUrl, handleChangeImage, positionFace }) {
+  
   const { top, left, width, height } = positionFace;
   const faceStyle = {
     top: `${top}px`,
@@ -22,13 +23,25 @@ function FaceChanger({ faceImageUrl, handleChangeImage, positionFace }) {
 }
 
 export function Page({ onClose }) {
+  const [showBase, setShowBase] = useState(false);
   const [showShirtModel, setShowShirtModel] = useState(false); // State to manage visibility of shirtModel
   const [showPage, setShowPage] = useState(false);
-
-
   const toggleShirtModel = () => {
     setShowShirtModel(!showShirtModel);
-    setShowPage(false);
+    setShowBase(false); // Hide baseModel when showing shirtModel
+    setShowPage(false); // Hide page when showing shirtModel
+  };
+
+  const toggleBaseModel = () => {
+    setShowBase(!showBase);
+    setShowShirtModel(false); // Hide shirtModel when showing baseModel
+    setShowPage(false); // Hide page when showing baseModel
+  };
+
+  const togglePage = () => {
+    setShowPage(!showPage);
+    setShowShirtModel(false); // Hide shirtModel when showing page
+    setShowBase(false); // Hide baseModel when showing page
   };
   
   const [top, setTop] = useState(410);
@@ -50,21 +63,68 @@ export function Page({ onClose }) {
         handleChangeImage={changeFaceImage}
         positionFace={{ top: top, left: left, width: width, height: height }}
       />
+      
       <img
-        className="absolute top-[232px] left-[57px] w-[420px] h-[800px] object-flex"
+        className="absolute top-[284px] left-[128px] w-[269px] h-[39px] object-fix"
         alt=""
-        src="/copy-of-copy-of-able-booth-slideshow-10-2@2x.png"
+        src="step1box (2).png"
       />
       <img
-        className="absolute top-[277px] left-[1503px] w-[359px] h-[534px] object-cover"
+        className="absolute top-[654px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
         alt=""
-        src="/copy-of-copy-of-able-booth-slideshow--8-removebgpreview-1@2x.png"
+        src="Step2Box.png"
+        onClick={togglePage}
+      />
+       <img
+        className="absolute top-[704px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step3Box.png"
       />
       <img
-        className="absolute top-[295px] left-[1523px] w-[318.2px] h-[492px] object-flex"
+        className="absolute top-[784px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
         alt=""
-        src="/copy-of-justapaper--pitch-11-2@2x.png"
+        src="Step4Box.png"
+        onClick={toggleBaseModel}/>{showBase && <BaseModel onClose={onClose} 
+      />}
+            <img
+        className="absolute top-[854px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step5Box.png"
       />
+     <img
+        className="absolute top-[339px] left-[128px] w-[165px] h-[322px] object-cover"
+        alt=""
+        src="/copy-of-justapaper--pitch-10-1@2x.png"
+      />
+      <img
+        className="absolute top-[238px] left-[63px] w-[412px] h-[775px] object-cover"
+        alt=""
+        src="/copy-of-justapaper--pitch-9-1@2x.png"
+      />
+      <img
+        className="absolute top-[284px] left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="step1box (2).png"
+      />
+      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[784px] left-[106px] w-[327px] h-11 bg-[url('/public/copyofjustapaperpitch81@2x.png')] bg-cover bg-no-repeat bg-[top]" 
+       onClick={toggleShirtModel} />
+      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[846px] left-[106px] w-[327px] h-[43px] bg-[url('/public/copyofjustapaperpitch141@2x.png')] bg-cover bg-no-repeat bg-[top]" />
+      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[907px] left-[106px] w-[327px] h-[45px] bg-[url('/public/copyofjustapaperpitch151@2x.png')] bg-cover bg-no-repeat bg-[top]" />
+      <div className="absolute top-[969px] left-[106px] w-[327px] h-11" />
+      
+      <img
+        className="absolute top-[444px] left-[158px] w-4 h-[26px] object-fill"
+        alt=""
+        src="/group-1@2x.png"
+        ></img>
+       
+      <img
+        className= "absolute top-[364px] left-[140px] w-600  h-[350px] object-fill"
+        alt=''
+        src='/Step2guide.png'
+      >
+        
+      </img>
       <img
         className="absolute top-[369px] left-[1545px] w-[97px] h-[63px] object-cover z-10"
         alt=""
@@ -76,6 +136,11 @@ export function Page({ onClose }) {
           setHeight(90)
           changeFaceImage("/nobg.png");
         }}
+      />
+      <img
+        className="absolute top-[308px] left-[1522px] w-[318.2px] h-[472px] object-cover"
+        alt=""
+        src="/copy-of-justapaper--pitch-11-2@2x.png"
       />
       <div className="absolute top-[969px] left-[106px] w-[327px] h-11" />
       <button
@@ -123,6 +188,7 @@ export function Page({ onClose }) {
           changeFaceImage(event.target.src);
         }}
       />
+
       <img
         className="absolute top-[569px] left-[1555px] w-[101px] h-[60px] object-cover"
         alt=""

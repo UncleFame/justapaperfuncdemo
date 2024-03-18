@@ -3,11 +3,7 @@ import { BaseModel } from './page2';
 
 function ShirtChanger({ shirtImageUrl, handleChangeImage, positionShirt }) {
   
-  const [showbaseModel, setbaseModel] = useState(false);
-  const toggleShirtModel = () => {
-    setShowShirtModel(!showShirtModel);
-    setShowPage(false);
-  };
+  
   const { top, left, width, height } = positionShirt;
   const shirtStyle = {
     top: `${top}px`,
@@ -27,13 +23,28 @@ function ShirtChanger({ shirtImageUrl, handleChangeImage, positionShirt }) {
 }
 
 export function ShirtModel({ onClose }) {
+  
+  const [showShirtModel, setShowShirtModel] = useState(false); 
+  const [showBase, setShowBase] = useState(false); 
+  const [showPage, setShowPage] = useState(false);
 
-  const [showBase, setShowBase] = useState(false);
 
+  const toggleShirtModel = () => {
+    setShowShirtModel(!showShirtModel);
+    setShowBase(false); 
+    setShowPage(false); 
+  };
 
   const toggleBaseModel = () => {
-    setShowBase(prev => !prev);
+    setShowBase(!showBase);
+    setShowShirtModel(false); 
+    setShowPage(false); 
+  };
 
+  const togglePage = () => {
+    setShowPage(!showPage);
+    setShowShirtModel(false); 
+    setShowBase(false); 
   };
   
 
@@ -66,12 +77,14 @@ export function ShirtModel({ onClose }) {
         handleChangeImage={changeShirtImage}
         positionShirt={positionShirt}
       />
+      
 
       <img
         className="absolute top-[277px] left-[1503px] w-[318.2ppx] h-[534px] object-flex"
         alt=""
         src="/copy-of-copy-of-able-booth-slideshow--8-removebgpreview-1@2x.png"
       />
+      
       <img
         className="absolute top-[295px] left-[1523px] w-[318.2px] h-[502px] object-flex z-10"
         alt=""
@@ -89,9 +102,54 @@ export function ShirtModel({ onClose }) {
           changeShirtImage("/nobg.png");
         }}
       />
+        <img
+        className="absolute top-[339px] left-[128px] w-[165px] h-[322px] object-cover"
+        alt=""
+        src="/copy-of-justapaper--pitch-10-1@2x.png"
+      />
+      <img
+        className="absolute top-[238px] left-[63px] w-[412px] h-[775px] object-cover"
+        alt=""
+        src="/copy-of-justapaper--pitch-9-1@2x.png"
+      />
+      <img
+        className="absolute top-[284px] left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="step1box (2).png"
+      />
+      <img
+        className="absolute top-[384px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step2Box.png"
+        onClick={togglePage}
+      />
+      
+      <img
+        className="absolute top-[464px] cursor-pointer  left-[128px] w-[269px] h-[370px] object-fix"
+        alt=""
+        src="Step3Guide.png"
+      />
+      <img
+        className="absolute top-[884px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step4Box.png"
+        onClick={toggleBaseModel}/>{showBase && <BaseModel onClose={onClose} 
+      />}
+      <img
+        className="absolute top-[884px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step4Box.png"
+        onClick={toggleBaseModel}/>{showBase && <BaseModel onClose={onClose} 
+      />}
+            <img
+        className="absolute top-[954px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step5Box.png"
+      />
+     
+     
       <button 
-      className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[407px] left-[1264px] w-10 h-12 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top] z-10"  
-      onClick={toggleBaseModel}/>{showBase && <BaseModel onClose={onClose} />}
+      className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[407px] left-[1264px] w-10 h-12 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top] z-10"   />
       
       <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1619px] w-[13px] h-4 [transform:_rotate(180deg)] [transform-origin:0_0] bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-2@3x.png')] bg-cover bg-no-repeat bg-[top]" />
       <div className="absolute top-[800px] left-[1682px] leading-[15px] inline-block w-[19px] h-5 [text-shadow:1px_0_0_rgba(0,_0,_0,_0.2),_0_1px_0_rgba(0,_0,_0,_0.2),_-1px_0_0_rgba(0,_0,_0,_0.2),_0_-1px_0_rgba(0,_0,_0,_0.2)]">
@@ -184,12 +242,7 @@ export function ShirtModel({ onClose }) {
           changeShirtImage(event.target.src);
         }}
       />
-      <img
-        className="absolute top-[232px] left-[57px] w-[420px] h-[800px] object-flex"
-        alt=""
-        src="/copy-of-copy-of-able-booth-slideshow-30-1@2x.png"
-        
-      />
+     
     </div>
   );
 }

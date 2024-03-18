@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import FRAMEmarketsquare from './FRAMEmarketsquare';
 import { Page} from './Page';
+import { BaseModel } from './page2';
 import { ShirtModel } from './Page1';
  
 function HairChanger({ hairImageUrl, handleChangeImage, position }) {
-  const { top, left,width,height } = position;
 
+  const { top, left,width,height } = position;
+  
   const imageStyle = {
     top: `${top}px`,
     left: `${left}px`,
@@ -37,9 +39,14 @@ function HairChanger({ hairImageUrl, handleChangeImage, position }) {
 export const Homepage = ({ onClose }) => {
   const [showPage, setShowPage] = useState(false);
   
-
+  const [showBase, setShowBase] = useState(false);  
+  
+  const toggleBaseModel = () => {
+    setShowBase(prev => !prev);
+  };
   const togglePage = () => {
     setShowPage(!showPage);
+
   };
 
 
@@ -146,16 +153,49 @@ export const Homepage = ({ onClose }) => {
         alt=""
         src="/copy-of-justapaper--pitch-9-1@2x.png"
       />
-      <img
-        className="absolute top-[284px] left-[128px] w-[269px] h-[399px] object-cover"
-        alt=""
-        src="/copy-of-justapaper--pitch-11-1@2x.png"
+     
+      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[784px] left-[106px] w-[327px] h-11 bg-[url('/public/copyofjustapaperpitch81@2x.png')] bg-cover bg-no-repeat bg-[top]" 
       />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[784px] left-[106px] w-[327px] h-11 bg-[url('/public/copyofjustapaperpitch81@2x.png')] bg-cover bg-no-repeat bg-[top]" />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[846px] left-[106px] w-[327px] h-[43px] bg-[url('/public/copyofjustapaperpitch141@2x.png')] bg-cover bg-no-repeat bg-[top]" />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[907px] left-[106px] w-[327px] h-[45px] bg-[url('/public/copyofjustapaperpitch151@2x.png')] bg-cover bg-no-repeat bg-[top]" />
+       <img
+        className="absolute top-[339px] left-[128px] w-[165px] h-[322px] object-cover"
+        alt=""
+        src="/copy-of-justapaper--pitch-10-1@2x.png"
+      />
+      <img
+        className="absolute top-[238px] left-[63px] w-[412px] h-[775px] object-cover"
+        alt=""
+        src="/copy-of-justapaper--pitch-9-1@2x.png"
+      />
+      <img
+        className="absolute top-[284px] left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="step1box (2).png"
+      />
+      <img
+        className="absolute top-[654px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step2Box.png"
+        onClick={togglePage}
+      />
+       <img
+        className="absolute top-[704px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step3Box.png"
+      />
+      <img
+        className="absolute top-[784px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step4Box.png"
+        onClick={toggleBaseModel}/>{showBase && <BaseModel onClose={onClose} 
+      />}
+            <img
+        className="absolute top-[854px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step5Box.png"
+      />
       <div className="absolute top-[969px] left-[106px] w-[327px] h-11" />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[732px] left-[106px] w-[327px] h-[43px] bg-[url('/public/copyofjustapaperpitch131@2x.png')] bg-cover bg-no-repeat bg-[top]" />
+   
+       
       <img
         className="absolute top-[444px] left-[158px] w-4 h-[26px] object-cover"
         alt=""
@@ -183,11 +223,11 @@ export const Homepage = ({ onClose }) => {
       <img
         className="absolute top-[452px] left-[1714px] w-[90px] h-[92px] object-cover"
         alt=""
-        src="/bown-hair-girls@2x.png"
+        src="BROWNGIRLS.png"
         onClick={(event) => {
     setTop(185)
-    setLeft(780)
-    setWidth(350)
+    setLeft(600)
+    setWidth(700)
     setHeight(340)
     changeHairImage(event.target.src);
   }}
@@ -195,11 +235,11 @@ export const Homepage = ({ onClose }) => {
       <img
         className="absolute top-[570px] left-[1552px] w-[90px] h-[61px] object-cover"
         alt=""
-        src="/pink-men@2x.png"
+        src="Pink.png"
         onClick={(event) => {
           setTop(255)
-          setLeft(790)
-          setWidth(350)
+          setLeft(770)
+          setWidth(390)
           setHeight(240)
           changeHairImage(event.target.src);
         }}
@@ -209,11 +249,11 @@ export const Homepage = ({ onClose }) => {
       <img
         className="absolute top-[566px] left-[1700px] w-[111px] h-[65px] object-cover"
         alt=""
-        src="/girlsgoldhair.png"
+        src="Gold.png"
         onClick={(event) => {
           setTop(255)
-          setLeft(750)
-          setWidth(440)
+          setLeft(740)
+          setWidth(480)
           setHeight(240)
           changeHairImage(event.target.src);
         }}
@@ -226,11 +266,11 @@ export const Homepage = ({ onClose }) => {
       <img
         className="absolute top-[659px] left-[1550px] w-[111px] h-[73px] object-cover"
         alt=""
-        src="/blue-hair@2x.png"
+        src="/Blue.png"
         onClick={(event) => {
           setTop(225)
           setLeft(790)
-          setWidth(340)
+          setWidth(350)
           setHeight(240)
           changeHairImage(event.target.src);
         }}
@@ -238,7 +278,7 @@ export const Homepage = ({ onClose }) => {
       <img
         className="absolute top-[663px] left-[1699px] w-28 h-[66px] object-cover"
         alt=""
-        src="/hair-brown@2x.png"
+        src="BROWNHAIR.png"
         onClick={(event) => {
           setTop(215)
           setLeft(780)
@@ -269,7 +309,7 @@ export const Homepage = ({ onClose }) => {
       />
       <button
         className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[407px] left-[1264px] w-10 h-12 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top] object-flex"
-        onClick={togglePage}
+        
       />
       {showPage && <Page onClose={onClose} />}
       
