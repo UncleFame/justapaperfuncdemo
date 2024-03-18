@@ -32,7 +32,7 @@ export function ShirtModel({ onClose }) {
 
 
   const toggleBaseModel = () => {
-    setShowBase(!showBase);
+    setShowBase(prev => !prev);
 
   };
   
@@ -44,7 +44,7 @@ export function ShirtModel({ onClose }) {
   const [height, setHeight] = useState(150);
 
   // State variable to hold the shirt image URL
-  const [shirtImageUrl, setShirtImageUrl] = useState('/shirt1@2x.png');
+  const [ shirtImageUrl, setShirtImageUrl] = useState('/shirt1@2x.png');
 
   // Function to change the shirt image
   const changeShirtImage = (newShirtImage) => {
@@ -81,6 +81,13 @@ export function ShirtModel({ onClose }) {
         className="absolute top-[369px] left-[1545px] w-[97px] h-[63px] object-cover z-10"
         alt=""
         src="/remove@2x.png"
+        onClick={(event) => {
+          setTop(420)
+          setLeft(860)
+          setWidth(2)
+          setHeight(90)
+          changeShirtImage("/nobg.png");
+        }}
       />
       <button 
       className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[407px] left-[1264px] w-10 h-12 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top] z-10"  

@@ -42,6 +42,7 @@ export const Homepage = ({ onClose }) => {
     setShowPage(!showPage);
   };
 
+
   // State variables to hold hair and face image URLs
   const [hairImageUrl, setHairImageUrl] = useState('/pink-hair-girls@2x.png');
 
@@ -71,11 +72,14 @@ export const Homepage = ({ onClose }) => {
   position={{ top: top, left: left, width: width , height: height }} // Updated to include width
 />
 
+      <div className='absolute top-[29px] left-[1603px] '>
+        <h2></h2>
+      </div>
       
       <img
-        className="absolute top-[29px] left-[1593px] w-72 h-[62px] object-cover"
+        className="absolute top-[29px] left-[1703px] w-42 h-[62px] object-flex "
         alt=""
-        src="/copy-of-copy-of-able-booth-slideshow-13-1@2x.png"
+        src="profile icon.png"
       />
       <div className="absolute top-[308px] left-[740px] w-[448px] h-[447px]">
         <img
@@ -109,9 +113,17 @@ export const Homepage = ({ onClose }) => {
         className="absolute top-[369px] left-[1545px] w-[97px] h-[63px] object-cover"
         alt=""
         src="/remove@2x.png"
+        onClick={(event) => {
+          setTop(420)
+          setLeft(860)
+          setWidth(2)
+          setHeight(90)
+          changeHairImage("/nobg.png");
+        }}
+        
       />
     <img
-  className="absolute top-[352px] left-[1681px] w-[123px] h-[85px] object-cover"
+  className="absolute top-[352px] left-[1681px] w-[123px] h-[85px] object-flex"
   alt=""
   src="/hair-1@2x.png"
   onClick={(event) => {
@@ -167,7 +179,7 @@ export const Homepage = ({ onClose }) => {
         alt=""
         src="/copy-of-justapaper--pitch-11-5@2x.png"
       />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[442px] left-[364px] w-[19px] h-[31px] [transform:_rotate(180deg)] [transform-origin:0_0] bg-[url('/public/copyofjustapaperpitch121@2x.png')] bg-cover bg-no-repeat bg-[top]" />
+      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[442px] left-[364px] w-[19px] h-[31px] [transform-origin:0_0] bg-[url('/public/copyofjustapaperpitch121@2x.png')] bg-cover bg-no-repeat bg-[top]" />
       <img
         className="absolute top-[452px] left-[1714px] w-[90px] h-[92px] object-cover"
         alt=""
@@ -261,7 +273,9 @@ export const Homepage = ({ onClose }) => {
       />
       {showPage && <Page onClose={onClose} />}
       
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1619px] w-[13px] h-4 [transform:_rotate(180deg)] [transform-origin:0_0] bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-2@3x.png')] bg-cover bg-no-repeat bg-[top]" />
+      <button
+      
+      className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[407px] left-[719px] w-10 h-12 transform   [transform-origin:0_0] bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-2@3x.png')] bg-cover bg-no-repeat bg-[top] object-flex" />
       <div className="absolute top-[787px] left-[1682px] leading-[15px] inline-block w-[19px] h-5 [text-shadow:1px_0_0_rgba(0,_0,_0,_0.2),_0_1px_0_rgba(0,_0,_0,_0.2),_-1px_0_0_rgba(0,_0,_0,_0.2),_0_-1px_0_rgba(0,_0,_0,_0.2)]">
         1
       </div>

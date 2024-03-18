@@ -1,19 +1,40 @@
 import React, { useState } from "react";
 
 
-export function BaseModel({ onClose }) {
-    const [baseImageUrl, setBaseImageUrl] = useState("/default_base_image.png"); // State for base image URL
-    const [basePosition, setBasePosition] = useState({ top: 225, left: 780, width: 370, height: 240 }); // State for base image position
-
-    const handleChangeBaseImage = () => {
-        setBaseImageUrl('new_base_image_url.png');
-    };
+function BaseChanger(  BaseImageUrl, handleChangeImage,positionBase ) {
     
-    const handleBaseClick = () => {
-        
-        // Change the position of the base image when clicked
-        setBasePosition({ top: 400, left: 600, width: 200, height: 150 });
-    };
+    const {top , left ,width , height} = positionBase
+    const BaseStyle = {
+
+        top: `${top}px`,
+        left: `${left}px`,
+        width: `${width}px`,
+        height: `${height}px`,
+
+
+
+    }
+    return (
+        <img
+          className="absolute top-[390px] left-[860px] w-[190px] h-[80px] object-flex z-0"
+          style={BaseStyle}
+          src={BaseImageUrl}
+          alt=""
+          onClick={() => handleChangeImage('new_shirt_image_url.png')}
+        />
+      );
+
+
+}
+
+
+
+
+
+export function BaseModel({ onClose }) {
+  <BaseChanger/>
+    
+
 
 
     
@@ -27,6 +48,7 @@ export function BaseModel({ onClose }) {
           <img
             className="absolute top-[295px] left-[1524px] w-[318.2px] h-[502px] object-flex z-30"
             alt=""
+            onClick={BaseChanger}
 
             src="/copy-of-justapaper--pitch-11-2@2x.png"
           />
@@ -34,6 +56,7 @@ export function BaseModel({ onClose }) {
             className="absolute top-[369px] left-[1545px] w-[97px] h-[63px] object-cover z-30"
             alt=""
             src="/remove@2x.png"
+            onClick={BaseChanger}
             
           />
           <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1764px] w-3 h-4 bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-1@3x.png')] bg-cover bg-no-repeat bg-[top]" />
