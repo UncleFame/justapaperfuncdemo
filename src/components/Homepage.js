@@ -14,9 +14,6 @@ function HairChanger({ hairImageUrl, handleChangeImage, position }) {
     width: `${width}px`,
     height: `${height}px`,
   };
-   const toggleShirtModel = () => {
-    setShowShirtModel(!showShirtModel);
-  };
 
   const changeHairImage = (newHairImage, position) => {
     console.log("Changing hair image to:", newHairImage);
@@ -38,8 +35,12 @@ function HairChanger({ hairImageUrl, handleChangeImage, position }) {
 
 export const Homepage = ({ onClose }) => {
   const [showPage, setShowPage] = useState(false);
-  
-  const [showBase, setShowBase] = useState(false);  
+  const [showBase, setShowBase] = useState(false);
+  const [showShirtModel, setShowShirtModel] = useState(false);
+  const toggleShirtModel = () => {
+    setShowShirtModel(!showShirtModel);
+  };
+
   
   const toggleBaseModel = () => {
     setShowBase(prev => !prev);
@@ -66,6 +67,7 @@ export const Homepage = ({ onClose }) => {
   
 
   return (
+    
     <div className="relative bg-white w-[1965px] h-[1294px] max-w-full max-h-full overflow-auto text-center text-xs text-black font-inter">
       <img
         className="absolute top-[277px] left-[1503px] w-[359px] h-[534px] object-cover"
@@ -175,18 +177,21 @@ export const Homepage = ({ onClose }) => {
         className="absolute top-[654px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
         alt=""
         src="Step2Box.png"
+        
         onClick={togglePage}
       />
        <img
         className="absolute top-[704px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
         alt=""
         src="Step3Box.png"
-      />
+        onClick={toggleShirtModel}
+        />{showShirtModel && <ShirtModel onClose={onClose} />}
+      
       <img
         className="absolute top-[784px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
         alt=""
         src="Step4Box.png"
-        onClick={toggleBaseModel}/>{showBase && <BaseModel onClose={onClose} 
+        onClick={toggleBaseModel}/>{showBase && <BaseModel onClose={onClose}  
       />}
             <img
         className="absolute top-[854px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"

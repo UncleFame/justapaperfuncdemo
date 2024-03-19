@@ -1,29 +1,11 @@
 import React, { useState } from "react";
-import {GetTem} from "./step5";
-function BaseChanger({ BaseImageUrl, handleChangeImage, positionBase }) {
-  const { top, left, width, height } = positionBase;
-  const BaseStyle = {
-    top: `${top}px`,
-    left: `${left}px`,
-    width: `${width}px`,
-    height: `${height}px`,
-  };
-
-  return (
-    <img
-      className="absolute top-[390px] left-[860px] w-[190px] h-[80px] object-flex z-0"
-      style={BaseStyle}
-      src={BaseImageUrl}
-      alt=""
-      onClick={() => handleChangeImage('new_shirt_image_url.png')}
-    />
-  );
-}
 
 
 
 
-export function BaseModel({ onClose }) {
+
+
+export function GetTem({ onClose }) {
   const [showTem, SetshowTem] = useState(false);
    
   const [showShirtModel, setShowShirtModel] = useState(false); 
@@ -36,20 +18,19 @@ export function BaseModel({ onClose }) {
     setShowBase(false); 
     setShowPage(false); 
   };
-
-  const toggleBaseModel = () => {
-    setShowBase(!showBase);
-    setShowShirtModel(false); 
-    setShowPage(false); 
-  };
-
+  
   const toggleTem = () => {
     SetshowTem(!showTem);
     setShowBase(false);
     setShowPage(false);
   };
   
-  
+  const toggleBaseModel = () => {
+    setShowBase(!showBase);
+    setShowShirtModel(false); 
+    setShowPage(false); 
+  };
+
   const togglePage = () => {
     setShowPage(!showPage);
     setShowShirtModel(false); 
@@ -149,101 +130,13 @@ export function BaseModel({ onClose }) {
       />
     
    
-    <img
-  className="absolute top-[954px] cursor-pointer left-[128px] w-[269px] h-[39px] object-fix"
-  alt=""
-  src="Step5Box.png"
-  onClick={toggleTem}
-/>
-
-
+            <img
+        className="absolute top-[954px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step5Box.png"
    
-          <img
-            className="absolute top-[506px] left-[1706px] w-32 h-[38px] object-cover z-30"
-            alt=""
-            src="/base3@2x.png"
-            
-            onClick={(event) => {
-              setTop(690)
-              setLeft(730)
-              setWidth(448)
-              setHeight(60)
-              changeBaseImage(event.target.src);
-            }}/>
-          <img
-            className="absolute top-[610px] left-[1532px] w-[123px] h-[38px] object-cover z-30"
-            alt=""
-            src="/base4@2x.png"
-          
-            onClick={(event) => {
-              setTop(690)
-              setLeft(730)
-              setWidth(448)
-              setHeight(60)
-              changeBaseImage(event.target.src);
-            }}/>
-          <img
-            className="absolute top-[502px] left-[1524px] w-[122px] h-[38px] object-cover z-30"
-            alt=""
-            src="/base2@2x.png"
-            onClick={(event) => {
-              setTop(690)
-              setLeft(730)
-              setWidth(448)
-              setHeight(60)
-              changeBaseImage(event.target.src);
-            }}
-          />
-          <img
-            className="absolute top-[610px] left-[1706px] w-[123px] h-[38px] object-cover z-30"
-            alt=""
-            src="/base5@2x.png"
-            onClick={(event) => {
-              setTop(690)
-              setLeft(730)
-              setWidth(448)
-              setHeight(60)
-              changeBaseImage(event.target.src);
-            }}
-          />
-          <img
-            className="absolute top-[381px] left-[1692px] w-[122px] h-[38px] object-cover z-30"
-            alt=""
-            src="/base1@2x.png"
-            onClick={(event) => {
-              setTop(690)
-              setLeft(730)
-              setWidth(448)
-              setHeight(60)
-              changeBaseImage(event.target.src);
-            }}
-          />
-          <img
-            className="absolute top-[697px] left-[1532px] w-[123px] h-[41px] object-cover z-30"
-            alt=""
-            src="/base6.png"
-            onClick={(event) => {
-              setTop(690)
-              setLeft(730)
-              setWidth(448)
-              setHeight(60)
-              changeBaseImage(event.target.src);
-            }}
-          />
-            
-         
-          <img
-            className="absolute cursor-pointer top-[718px] left-[1692px] w-[123px] h-[38px] object-cover z-30"
-            alt=""
-            src="/base7@2x.png"
-            onClick={(event) => {
-              setTop(690)
-              setLeft(730)
-              setWidth(478)
-              setHeight(60)
-              changeBaseImage(event.target.src);
-            }}
-          />
+      />
+
         </div>
       );    
     };
