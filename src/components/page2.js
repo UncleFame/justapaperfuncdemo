@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {GetTem} from "./step5";
+import { useNavigate } from "react-router-dom";
 function BaseChanger({ BaseImageUrl, handleChangeImage, positionBase }) {
   const { top, left, width, height } = positionBase;
   const BaseStyle = {
@@ -24,13 +25,13 @@ function BaseChanger({ BaseImageUrl, handleChangeImage, positionBase }) {
 
 
 export function BaseModel({ onClose }) {
-  const [showTem, SetshowTem] = useState(false);
-   
+  const navigate = useNavigate();
+
+
   const [showShirtModel, setShowShirtModel] = useState(false); 
   const [showBase, setShowBase] = useState(false); 
   const [showPage, setShowPage] = useState(false);
-
-
+  const [showTem, setShowTem] = useState(false);
   const toggleShirtModel = () => {
     setShowShirtModel(!showShirtModel);
     setShowBase(false); 
@@ -42,12 +43,12 @@ export function BaseModel({ onClose }) {
     setShowShirtModel(false); 
     setShowPage(false); 
   };
-
   const toggleTem = () => {
-    SetshowTem(!showTem);
+    setShowTem(!showTem); // Corrected typo here
     setShowBase(false);
     setShowPage(false);
   };
+  
   
   
   const togglePage = () => {
@@ -61,7 +62,7 @@ export function BaseModel({ onClose }) {
   const [width, setWidth] = useState(480);
   const [height, setHeight] = useState(60);
 
-  const [BaseImageUrl, setBaseImageUrl] = useState('/base7@2x.png');
+  const [BaseImageUrl, setBaseImageUrl] = useState('/nobg.png');
 
   const changeBaseImage = (newBaseImage) => {
     setBaseImageUrl(newBaseImage);
@@ -142,22 +143,19 @@ export function BaseModel({ onClose }) {
         src="Step3Box.png"
 
       />
-      <img
-        className="absolute top-[554px] cursor-pointer  left-[128px] w-[269px] h-[380px] object-fix"
+
+<img
+        className="absolute top-[524px] cursor-pointer  left-[128px] w-[269px] h-[390px] object-fix"
         alt=""
         src="Step4Guide.png"
       />
+<img
+        className="absolute top-[954px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
+        alt=""
+        src="Step5Box.png"
+        onClick={toggleTem}/>{showTem && <GetTem onClose={onClose} 
+      />}
     
-   
-    <img
-  className="absolute top-[954px] cursor-pointer left-[128px] w-[269px] h-[39px] object-fix"
-  alt=""
-  src="Step5Box.png"
-  onClick={toggleTem}
-/>
-
-
-   
           <img
             className="absolute top-[506px] left-[1706px] w-32 h-[38px] object-cover z-30"
             alt=""

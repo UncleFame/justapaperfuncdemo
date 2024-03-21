@@ -1,11 +1,33 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+function BaseChanger({ BaseImageUrl, handleChangeImage, positionBase }) {
+  const { top, left, width, height } = positionBase;
+  const BaseStyle = {
+    top: `${top}px`,
+    left: `${left}px`,
+    width: `${width}px`,
+    height: `${height}px`,
+  };
 
-
+  return (
+    <img
+      className="absolute top-[390px] left-[860px] w-[190px] h-[80px] object-flex z-0"
+      style={BaseStyle}
+      src={BaseImageUrl}
+      alt=""
+      onClick={() => handleChangeImage('new_shirt_image_url.png')}
+    />
+  );
+}
 
 
 
 
 export function GetTem({ onClose }) {
+  const navigate = useNavigate();
+
+  
+
   const [showTem, SetshowTem] = useState(false);
    
   const [showShirtModel, setShowShirtModel] = useState(false); 
@@ -18,19 +40,20 @@ export function GetTem({ onClose }) {
     setShowBase(false); 
     setShowPage(false); 
   };
-  
-  const toggleTem = () => {
-    SetshowTem(!showTem);
-    setShowBase(false);
-    setShowPage(false);
-  };
-  
+
   const toggleBaseModel = () => {
     setShowBase(!showBase);
     setShowShirtModel(false); 
     setShowPage(false); 
   };
 
+  const toggleTem = () => {
+    SetshowTem(!showTem);
+    setShowBase(false);
+    setShowPage(false);
+  };
+  
+  
   const togglePage = () => {
     setShowPage(!showPage);
     setShowShirtModel(false); 
@@ -42,7 +65,7 @@ export function GetTem({ onClose }) {
   const [width, setWidth] = useState(480);
   const [height, setHeight] = useState(60);
 
-  const [BaseImageUrl, setBaseImageUrl] = useState('/base7@2x.png');
+  const [BaseImageUrl, setBaseImageUrl] = useState('/nobg.png');
 
   const changeBaseImage = (newBaseImage) => {
     setBaseImageUrl(newBaseImage);
@@ -78,9 +101,9 @@ export function GetTem({ onClose }) {
             src="/copy-of-justapaper--pitch-11-2@2x.png"
           />
           <img
-            className="absolute top-[369px] left-[1545px] w-[97px] h-[63px] object-cover z-30"
+            className="absolute top-[369px] left-[1545px] w-[287px] h-[400px] object-flex z-30"
             alt=""
-            src="/remove@2x.png"
+            src="/DDI Connect.png"
            
             onClick={(event) => {
               setTop(690)
@@ -124,19 +147,16 @@ export function GetTem({ onClose }) {
 
       />
       <img
-        className="absolute top-[554px] cursor-pointer  left-[128px] w-[269px] h-[380px] object-fix"
+        className="absolute top-[554px] cursor-pointer  left-[128px] w-[269px] h-[39 px] object-fix"
         alt=""
-        src="Step4Guide.png"
-      />
-    
-   
-            <img
-        className="absolute top-[954px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
-        alt=""
-        src="Step5Box.png"
-   
+        src="Step4Box.png"
       />
 
+<img
+        className="absolute top-[624px] cursor-pointer  left-[128px] w-[269px] h-[39 px] object-fix"
+        alt=""
+        src="Step5Guide.png"
+      />
         </div>
       );    
     };

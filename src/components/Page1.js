@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BaseModel } from './page2';
+import {GetTem} from "./step5";
 
 function ShirtChanger({ shirtImageUrl, handleChangeImage, positionShirt }) {
   
@@ -24,9 +25,21 @@ function ShirtChanger({ shirtImageUrl, handleChangeImage, positionShirt }) {
 
 export function ShirtModel({ onClose }) {
   
+  
   const [showShirtModel, setShowShirtModel] = useState(false); 
   const [showBase, setShowBase] = useState(false); 
   const [showPage, setShowPage] = useState(false);
+  
+  const [showTem, setshowTem] = useState(false);
+
+
+
+
+  const toggleTem = () => {
+    setshowTem(!showTem);
+    setShowBase(false);
+    setShowPage(false);
+  };
 
 
   const toggleShirtModel = () => {
@@ -46,6 +59,7 @@ export function ShirtModel({ onClose }) {
     setShowShirtModel(false); 
     setShowBase(false); 
   };
+  
   
 
 
@@ -135,17 +149,16 @@ export function ShirtModel({ onClose }) {
         src="Step4Box.png"
         onClick={toggleBaseModel}/>{showBase && <BaseModel onClose={onClose} 
       />}
-      <img
-        className="absolute top-[884px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
-        alt=""
-        src="Step4Box.png"
-        onClick={toggleBaseModel}/>{showBase && <BaseModel onClose={onClose} 
-      />}
             <img
         className="absolute top-[954px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
         alt=""
         src="Step5Box.png"
-      />
+        
+        onClick={toggleTem}/>{showTem && <GetTem onClose={onClose} 
+      />}
+
+        
+      
      
      
       <button 
@@ -153,12 +166,12 @@ export function ShirtModel({ onClose }) {
       
       <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1619px] w-[13px] h-4 [transform:_rotate(180deg)] [transform-origin:0_0] bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-2@3x.png')] bg-cover bg-no-repeat bg-[top]" />
       <div className="absolute top-[800px] left-[1682px] leading-[15px] inline-block w-[19px] h-5 [text-shadow:1px_0_0_rgba(0,_0,_0,_0.2),_0_1px_0_rgba(0,_0,_0,_0.2),_-1px_0_0_rgba(0,_0,_0,_0.2),_0_-1px_0_rgba(0,_0,_0,_0.2)]">
-        3
+        
       </div>
       <img
         className="absolute top-[676px] left-[1701px] w-[95px] h-[81px] object-cover z-10"
         alt=""
-        src="/shirt7@2x.png"
+        src="/ABACG1.png"
         onClick={(event) => {
           setTop(545);
           setLeft(880);
@@ -197,7 +210,7 @@ export function ShirtModel({ onClose }) {
       <img
         className="absolute top-[574px] left-[1701px] w-[86px] h-[77px] object-cover z-10"
         alt=""
-        src="/shirt5@2x.png"
+        src="/DDI.png"
         onClick={(event) => {
           setTop(545);
           setLeft(880);
@@ -209,7 +222,7 @@ export function ShirtModel({ onClose }) {
       <img
         className="absolute top-[580px] left-[1551px] w-[87px] h-[76px] object-cover z-10"
         alt=""
-        src="/shirt4@2x.png"
+        src="ABAC.png"
         onClick={(event) => {
           setTop(545);
           setLeft(880);
@@ -221,7 +234,7 @@ export function ShirtModel({ onClose }) {
       <img
         className="absolute top-[362px] left-[1701px] w-[86px] h-[77px] object-cover z-10"
         alt=""
-        src="/shirt1@2x.png"
+        src="/JustapaperShirt.png"
         onClick={(event) => {
           setTop(545);
           setLeft(880);

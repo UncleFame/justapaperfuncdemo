@@ -6,6 +6,8 @@ import {
   useLocation,
 } from "react-router-dom";
 import Homepage from "./components/Homepage";
+import GetTem from "./components/step5";
+
 
 function App() {
   const action = useNavigationType();
@@ -46,7 +48,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-    </Routes>
+</Routes>
   );
 }
 export default App;

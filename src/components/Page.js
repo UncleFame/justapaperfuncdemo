@@ -49,7 +49,7 @@ export function Page({ onClose }) {
   const [width, setWidth] = useState(210);
   const [height, setHeight] = useState(90);
   // State variable to hold the face image URL
-  const [faceImageUrl, setFaceImageUrl] = useState('/face1@2x.png');
+  const [faceImageUrl, setFaceImageUrl] = useState('face1.png');
 
   // Function to change the face image
   const changeFaceImage = (newFaceImage) => {
@@ -150,12 +150,12 @@ export function Page({ onClose }) {
       
       <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[787px] left-[1619px] w-[13px] h-4 [transform:_rotate(180deg)] [transform-origin:0_0] bg-[url('/public/copy-of-copy-of-able-booth-slideshow-7-2@3x.png')] bg-cover bg-no-repeat bg-[top]" />
       <div className="absolute top-[787px] left-[1682px] leading-[15px] inline-block w-[19px] h-5 [text-shadow:1px_0_0_rgba(0,_0,_0,_0.2),_0_1px_0_rgba(0,_0,_0,_0.2),_-1px_0_0_rgba(0,_0,_0,_0.2),_0_-1px_0_rgba(0,_0,_0,_0.2)]">
-        2
+        
       </div>
       <img
         className="absolute top-[683px] left-[1698px] w-[132px] h-[55px] object-cover"
         alt=""
-        src="/face7@2x.png"
+        src="/eye7.png"
         onClick={(event) => {
           setTop(405)
           setLeft(860)
@@ -167,7 +167,7 @@ export function Page({ onClose }) {
       <img
         className="absolute top-[479px] left-[1556px] w-[76px] h-[43px] object-cover"
         alt=""
-        src="/face2@2x.png"
+        src="/eye2.png"
         onClick={(event) => {
           setTop(390)
           setLeft(850)
@@ -179,7 +179,7 @@ export function Page({ onClose }) {
       <img
         className="absolute top-[485px] left-[1701px] w-[126px] h-[37px] object-cover"
         alt=""
-        src="/face3@2x.png"
+        src="/eye3.png"
         onClick={(event) => {
           setTop(400)
           setLeft(860)
@@ -192,7 +192,7 @@ export function Page({ onClose }) {
       <img
         className="absolute top-[569px] left-[1555px] w-[101px] h-[60px] object-cover"
         alt=""
-        src="/face4@2x.png"
+        src="/eye4.png"
         onClick={(event) => {
           setTop(420)
           setLeft(860)
@@ -204,7 +204,7 @@ export function Page({ onClose }) {
       <img
         className="absolute top-[585px] left-[1708px] w-[119px] h-[30px] object-cover"
         alt=""
-        src="/face5@2x.png"
+        src="/eye5.png"
         onClick={(event) => {
           setTop(410)
           setLeft(860)
@@ -216,7 +216,7 @@ export function Page({ onClose }) {
       <img
         className="absolute top-[683px] left-[1550px] w-[113px] h-[65px] object-cover"
         alt=""
-        src="/face6@2x.png"
+        src="/eye6.png"
         onClick={(event) => {
           setTop(420)
           setLeft(860)
@@ -228,7 +228,7 @@ export function Page({ onClose }) {
       <img
         className="absolute top-[369px] left-[1692px] w-[119px] h-[65px] object-cover"
         alt=""
-        src="/face1@2x.png"
+        src="face1.png"
         onClick={(event) => {
           setTop(410)
           setLeft(868)

@@ -52,7 +52,7 @@ export const Homepage = ({ onClose }) => {
 
 
   // State variables to hold hair and face image URLs
-  const [hairImageUrl, setHairImageUrl] = useState('/pink-hair-girls@2x.png');
+  const [hairImageUrl, setHairImageUrl] = useState('hair-1@2x.png');
 
   // Function to change the hair image
   const changeHairImage = (newHairImage, position) => {
@@ -60,9 +60,9 @@ export const Homepage = ({ onClose }) => {
     setHairImageUrl(newHairImage);
     // You can also set the position here if needed
   };
-  const [top, setTop] = useState(225);
-  const [left,setLeft] = useState(770)
-  const [width, setWidth] = useState(390);
+  const [top, setTop] = useState(275);
+  const [left,setLeft] = useState(820)
+  const [width, setWidth] = useState(290);
   const [height,setHeight] = useState(190)
   
 
@@ -132,7 +132,7 @@ export const Homepage = ({ onClose }) => {
         
       />
     <img
-  className="absolute top-[352px] left-[1681px] w-[123px] h-[85px] object-flex"
+  className="absolute top-[352px] left-[1681px] w-[111px] h-[73px] object-flex"
   alt=""
   src="/hair-1@2x.png"
   onClick={(event) => {
@@ -169,9 +169,9 @@ export const Homepage = ({ onClose }) => {
         src="/copy-of-justapaper--pitch-9-1@2x.png"
       />
       <img
-        className="absolute top-[284px] left-[128px] w-[269px] h-[39px] object-fix"
+        className="absolute top-[284px] left-[128px] w-[269px] h-[360px] object-fix"
         alt=""
-        src="step1box (2).png"
+        src="Step1.png"
       />
       <img
         className="absolute top-[654px] cursor-pointer  left-[128px] w-[269px] h-[39px] object-fix"
@@ -202,12 +202,7 @@ export const Homepage = ({ onClose }) => {
    
        
       <img
-        className="absolute top-[444px] left-[158px] w-4 h-[26px] object-cover"
-        alt=""
-        src="/group-1@2x.png"
-      />
-      <img
-        className="absolute top-[464px] left-[1545px] w-[120px] h-[68px] object-cover"
+        className="absolute top-[464px] left-[1545px] w-[111px] h-[73px] object-cover"
         alt=""
         src="/pink-hair-girls@2x.png"
         onClick={(event) => {
@@ -219,14 +214,9 @@ export const Homepage = ({ onClose }) => {
           changeHairImage(event.target.src);
         }}
       />
-      <img
-        className="absolute top-[342px] left-[177px] w-[177px] h-[263px] object-cover"
-        alt=""
-        src="/copy-of-justapaper--pitch-11-5@2x.png"
-      />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[442px] left-[364px] w-[19px] h-[31px] [transform-origin:0_0] bg-[url('/public/copyofjustapaperpitch121@2x.png')] bg-cover bg-no-repeat bg-[top]" />
-      <img
-        className="absolute top-[452px] left-[1714px] w-[90px] h-[92px] object-cover"
+     
+     <img
+        className="absolute top-[442px] left-[1690px] w-[111px] h-[120px] object-cover"
         alt=""
         src="BROWNGIRLS.png"
         onClick={(event) => {
@@ -238,7 +228,7 @@ export const Homepage = ({ onClose }) => {
   }}
   />
       <img
-        className="absolute top-[570px] left-[1552px] w-[90px] h-[61px] object-cover"
+        className="absolute top-[570px] left-[1552px] w-[111px] h-[73px] object-cover"
         alt=""
         src="Pink.png"
         onClick={(event) => {
@@ -252,7 +242,7 @@ export const Homepage = ({ onClose }) => {
         
       />
       <img
-        className="absolute top-[566px] left-[1700px] w-[111px] h-[65px] object-cover"
+        className="absolute top-[566px] left-[1700px] w-[111px] h-[73px] object-cover"
         alt=""
         src="Gold.png"
         onClick={(event) => {
